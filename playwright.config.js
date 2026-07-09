@@ -40,7 +40,7 @@ export default defineConfig({ // Configuration for Playwright Test
     browserName: 'chromium', // Specify the browser to use for testing. Options: 'chromium', 'firefox', 'webkit'
     headless: false, // Run tests in headless mode (without a visible browser window)
     screenshot: 'on', // Capture screenshots for each test. Options: 'on', 'off', 'only-on-failure'
-    trace: 'retain-on-failure', // Enable tracing for debugging purposes. Options: 'on', 'off', 'retain-on-failure', 'on-first-retry'
+    trace: 'on', //'retain-on-failure', // Enable tracing for debugging purposes. Options: 'on', 'off', 'retain-on-failure', 'on-first-retry'
     
 
   },
