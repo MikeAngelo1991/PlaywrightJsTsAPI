@@ -1,11 +1,23 @@
-const {test, expect} = require('@playwright/test');
+const {test, expect, request} = require('@playwright/test');
 
-test.beforeAll( () => // se ejecuta antes de todos los tests
+const loginPayLoad =  {userEmail: "sirmiguel28@gmail.com", userPassword: "Inmamm34@@"}
+
+test.beforeAll( async () => // se ejecuta antes de todos los tests
     {
 
+       const apiContext = await request.newContext(); // se crea un nuevo contexto de solicitud para realizar solicitudes HTTP
+       const loginResponse =await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", 
+        {
+            data: loginPayLoad
+        }
+    );
+    // 200, 201
 
+    expect(loginResponse.ok()).toBeTruthy(); // se verifica que la respuesta de la solicitud sea exitosa
+    const loginResponseJson = await loginResponse.json(); // se obtiene el cuerpo de la respuesta de la solicitud en formato JSON
+    const token = loginResponseJson.token; // se obtiene el token de la respuesta de la solicitud
 
-    })
+    });
 
 
 test.beforeEach( () => // se ejecuta antes de cada test
@@ -18,7 +30,7 @@ test.beforeEach( () => // se ejecuta antes de cada test
 
     // test 1, test 2, test 3
 
-    
+
 
 test('Client app login', async ({page}) => { // se colcoca browser para abrir el navegador
 
