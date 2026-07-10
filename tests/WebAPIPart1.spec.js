@@ -1,6 +1,8 @@
 const {test, expect, request} = require('@playwright/test');
 
 const loginPayLoad =  {userEmail: "sirmiguel28@gmail.com", userPassword: "Inmamm34@@"}
+let token; // variable global para almacenar el token de autenticación
+
 
 test.beforeAll( async () => // se ejecuta antes de todos los tests
     {
@@ -15,7 +17,10 @@ test.beforeAll( async () => // se ejecuta antes de todos los tests
 
     expect(loginResponse.ok()).toBeTruthy(); // se verifica que la respuesta de la solicitud sea exitosa
     const loginResponseJson = await loginResponse.json(); // se obtiene el cuerpo de la respuesta de la solicitud en formato JSON
-    const token = loginResponseJson.token; // se obtiene el token de la respuesta de la solicitud
+    token = loginResponseJson.token; // se obtiene el token de la respuesta de la solicitud
+    console.log(token); // se imprime el token en la consola
+
+
 
     });
 
@@ -32,18 +37,22 @@ test.beforeEach( () => // se ejecuta antes de cada test
 
 
 
-test('Client app login', async ({page}) => { // se colcoca browser para abrir el navegador
+test('Place the order', async ({page}) => { // se colcoca browser para abrir el navegador
 
-    const email = "sirmiguel28@gmail.com";
-    const productName = "ZARA COAT 3";
-    const products = page.locator(".card-body"); // se busca el elemento del contenedor de productos
+    page.addInitScript(value => { //|
+        window.localStorage.setItem('token', value); // se establece el token de autenticación en el almacenamiento local del navegador
+    }, token);
 
-    await page.goto("https://rahulshettyacademy.com/client");
+    /*await page.goto("https://rahulshettyacademy.com/client");
     await page.locator("#userEmail").fill(email); // se llena el campo de correo electronico
     await page.locator("#userPassword").fill("Inmamm34@@");
     await page.locator("[value='Login']").click();
-    
-    await page.waitForLoadState('networkidle'); // espera a que la pagina cargue completamente // networkidle significa que no hay solicitudes de red pendientes
+    await page.waitForLoadState('networkidle'); // espera a que la pagina cargue completamente // networkidle significa que no hay solicitudes de red pendientes */
+    const email = "sirmiguel28@gmail.com";
+    await page.goto("https://rahulshettyacademy.com/client");
+    const productName = "ZARA COAT 3";
+    const products = page.locator(".card-body"); // se busca el elemento del contenedor de productos
+
     await products.last().waitFor(); // espera a que el elemento este visible en la pagina
     const titles = await products.allTextContents();
     
