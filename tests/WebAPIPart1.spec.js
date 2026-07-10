@@ -56,6 +56,7 @@ test.beforeAll(async () => // se ejecuta antes de todos los tests
         page.addInitScript(value => { //|
             window.localStorage.setItem('token', value); // se establece el token de autenticación en el almacenamiento local del navegador
         }, token);
+        
 
         /*await page.goto("https://rahulshettyacademy.com/client");
         await page.locator("#userEmail").fill(email); // se llena el campo de correo electronico
