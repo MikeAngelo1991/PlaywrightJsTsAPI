@@ -39,15 +39,16 @@ test.beforeAll(async () => // se ejecuta antes de todos los tests
         console.log(orderResponseJson); // se imprime la respuesta de la solicitud en la consola
         orderId = orderResponseJson.orders[0]; // se obtiene el id de la orden generada
 
-    test.beforeEach(() => // se ejecuta antes de cada test
-    {
+});
+
+test.beforeEach(() => // se ejecuta antes de cada test
+{
 
 
 
-    });
+});
 
-
-    // test 1, test 2, test 3
+// test 1, test 2, test 3
 
 
 
@@ -56,7 +57,7 @@ test.beforeAll(async () => // se ejecuta antes de todos los tests
         page.addInitScript(value => { //|
             window.localStorage.setItem('token', value); // se establece el token de autenticación en el almacenamiento local del navegador
         }, token);
-        
+
 
         /*await page.goto("https://rahulshettyacademy.com/client");
         await page.locator("#userEmail").fill(email); // se llena el campo de correo electronico
