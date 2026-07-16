@@ -47,7 +47,7 @@ test.beforeAll(async () => // se ejecuta antes de todos los tests
         }
 
         const orderIdDetails = await page.locator(".col-text").textContent(); // se obtiene el texto del elemento que contiene el id de la orden en la pagina de detalles de la orden
-        await page.pause(); // se pausa la ejecución del test para poder inspeccionar la página
+        //await page.pause(); // se pausa la ejecución del test para poder inspeccionar la página
         await expect(response.orderId.includes(orderIdDetails)).toBeTruthy(); // se verifica que el id de la orden generada sea el mismo que el id de la orden en la pagina de detalles de la orden
 
     });
