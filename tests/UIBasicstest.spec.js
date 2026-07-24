@@ -38,8 +38,6 @@ test('Browser Context Playwright test', async ({ browser }) => { // se colcoca b
     const allTitles = await cardTitles.allTextContents();
     console.log(allTitles); // se imprime el texto de todos los enlaces y muestra en la consola lo que se esta ejecutando
 
-
-
 });
 
 test('UI Controls', async ({ page }) => { // se coloca page para abrir el navegador // only para ejecutar solo este test

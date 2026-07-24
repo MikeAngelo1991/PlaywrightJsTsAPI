@@ -17,6 +17,7 @@ test('@QW Security test request intercept', async ({ page }) => {
     await products.first().waitFor(); // espera a que el elemento este visible en la pagina
     await page.locator("button[routerlink*='myorders']").click();
 
+    //intercepting the request and modifying the response to a fake response
 
     await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*",
         route => { // route es un objeto que representa la solicitud que se está interceptando buscar en playwright route.continue() y route.fulfill()
