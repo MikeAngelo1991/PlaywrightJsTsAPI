@@ -6,16 +6,16 @@ test('@Web Browser Context-Validating Error login', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    page.route('**/*.css', route => route.abort()); // se intercepta la solicitud de los archivos CSS y se cancela la solicitud para que no se carguen los estilos de la página
+    //page.route('**/*.css', route => route.abort()); // se intercepta la solicitud de los archivos CSS y se cancela la solicitud para que no se carguen los estilos de la página
 
-    page.route('**/*.{jpg,png,jpeg}', route => route.abort()); // se intercepta la solicitud de las imágenes y se cancela la solicitud para que no se carguen las imágenes de la página
-
+    //page.route('**/*.{jpg,png,jpeg}', route => route.abort()); // se intercepta la solicitud de las imágenes y se cancela la solicitud para que no se carguen las imágenes de la página
 
     const userName = page.locator('#username');
     const signIn = page.locator("#signInBtn");
     const cardTitles = page.locator(".card-body a");
-    page.on('request', request => console.log(request.url()));
-    page.on('response', response => console.log(response.url(), response.status()));
+
+    page.on('request', request => console.log(request.url())); // se imprime en la consola la URL de cada solicitud que se realiza en la página
+    page.on('response', response => console.log(response.url(), response.status())); // se imprime en la consola la URL y el estado de cada respuesta que se recibe en la página
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     console.log(await page.title());
     //css 
