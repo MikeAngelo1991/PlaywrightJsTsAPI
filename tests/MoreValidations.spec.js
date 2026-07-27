@@ -27,3 +27,23 @@ test('Popup validations', async ({ page }) => {
     console.log(textCheck.split(" ")[1]); // se divide el texto en un array y se obtiene el segundo elemento del array
 
 })
+
+
+test('Screenshot & Visual comparision', async ({ page }) => {
+    
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect (page.locator("#displayed-text")).toBeVisible(); // se verifica que el elemento este visible en la pagina
+    await page.locator("#displayed-text").screenshot({ path: 'partialScreenshot.png' }); // se toma una captura de pantalla del elemento y se guarda en la ruta especificada
+    await page.locator("#hide-textbox").click(); // se hace clic en el boton de ocultar el elemento
+    await page.screenshot({ path: 'screenshot.png' }); // se toma una captura de pantalla de la pagina y se guarda en la ruta especificada
+    await expect (page.locator("#displayed-text")).toBeHidden(); // se verifica que el elemento este oculto en la pagina
+    
+});
+//screenshot -store -> screenshot -> compare 
+
+test.only('visual', async ({ page }) => {
+
+    await page.goto("https://duckduckgo.com/"); // se navega a la pagina de rediff
+    expect(await page.screenshot({})).toMatchSnapshot('landing.png'); // se toma una captura de pantalla de la pagina y se guarda en la ruta especificada
+
+});
