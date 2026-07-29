@@ -15,6 +15,7 @@
     "@types/node": "^26.0.0"
   },
   "dependencies": {
-    "playwright": "^1.61.1"
+    "playwright": "^1.61.1",
+    "exceljs": "^4.4.0"
   }
 }
