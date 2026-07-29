@@ -1,6 +1,5 @@
 // @ts-check
-import { defineConfig, devices} from '@playwright/test';
-//import config from './playwright.config.js';
+const { defineConfig } = require('@playwright/test');
 
 /**
  * Read environment variables from file.
@@ -13,7 +12,7 @@ import { defineConfig, devices} from '@playwright/test';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-export default defineConfig({ // Configuration for Playwright Test 
+module.exports = defineConfig({ // Configuration for Playwright Test 
   testDir: './tests', // Specify the directory where the test files are located
   timeout: 50 * 1000, // Maximum time one test can run for.
   expect: {
@@ -44,11 +43,6 @@ export default defineConfig({ // Configuration for Playwright Test
     
 
   },
-
-
-
-//module.exports = config; // Export the configuration object for Playwright Test
-
   /* Configure projects for major browsers */
  /* projects: [
     {
