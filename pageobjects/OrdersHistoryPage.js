@@ -5,20 +5,21 @@ class OrdersHistoryPage {
         this.rows = page.locator("tbody tr");
         this.orderdIdDetails = page.locator(".col-text");
     }
-    async searchOrderAndSelect(orderId) {
+
+    async searchOrderAndSelect(orderId) { // se crea una funcion para buscar el id de la orden y seleccionarla
 
         await this.ordersTable.waitFor();
         for (let i = 0; i < await this.rows.count(); ++i) {
-            const rowOrderId = await this.rows.nth(i).locator("th").textContent();
+            const rowOrderId = await this.rows.nth(i).locator("th").textContent(); // se obtiene el texto del elemento que contiene el id de la orden
             if (orderId.includes(rowOrderId)) {
-                await this.rows.nth(i).locator("button").first().click();
+                await this.rows.nth(i).locator("button").first().click(); // se hace clic en el boton de la fila que contiene el id de la orden
                 break;
             }
         }
 
     }
 
-    async getOrderId() {
+    async getOrderId() { // se crea una funcion para obtener el id de la orden en la pagina de detalles de la orden
         return await this.orderdIdDetails.textContent();
     }
 

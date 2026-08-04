@@ -11,8 +11,8 @@ class OrdersReviewPage { // se crea una clase para la pagina de review de ordene
         this.orderId = page.locator(".em-spacer-1 .ng-star-inserted");
 
     }
-    
-    async searchCountryAndSelect(countryCode, countryName) {
+
+    async searchCountryAndSelect(countryCode, countryName) { // se crea una funcion para buscar el pais y seleccionarlo
 
         await this.country.type(countryCode, { delay: 100 });
         await this.dropdown.waitFor();
@@ -27,14 +27,14 @@ class OrdersReviewPage { // se crea una clase para la pagina de review de ordene
 
     }
 
-    async VerifyEmailId(username) {
+    async VerifyEmailId(username) { // se crea una funcion para verificar que el correo electronico ingresado sea el mismo que el correo electronico del usuario logueado
         await expect(this.emailId).toHaveText(username);
     }
 
-    async SubmitAndGetOrderId() {
+    async SubmitAndGetOrderId() { // se crea una funcion para realizar el submit del pedido y obtener el id del pedido
         await this.submit.click();
         await expect(this.orderConfirmationText).toHaveText(" Thankyou for the order. ");
-        return await this.orderId.textContent();
+        return await this.orderId.textContent(); // se obtiene el texto del elemento que contiene el id de la orden y se retorna
     }
 }
 module.exports = { OrdersReviewPage };
