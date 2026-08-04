@@ -6,11 +6,12 @@ class DashboardPage {
         this.products = page.locator(".card-body"); // se busca el elemento del contenedor de productos
         this.productsText = page.locator(".card-body b");
         this.cart = page.locator("[routerlink*='cart']"); // se busca el elemento del enlace del carrito
+        this.orders = page.locator("button[routerlink*=myorders]"); // se busca el elemento del enlace de las ordenes
     }
 
 
     async searchProductAddCart(productName) { // se crea una funcion asincrona para agregar un producto al carrito con el parametro de nombre del producto
-        
+
         await this.products.last().waitFor(); // espera a que el elemento este visible en la pagina
         const titles = await this.productsText.allTextContents();
 
@@ -26,6 +27,10 @@ class DashboardPage {
                 break; // se rompe el ciclo una vez que se encuentra el producto y se agrega al carrito
             }
         }
+    }
+
+    async navigateToOrders() { // se crea una funcion para navegar a la pagina de ordenes
+        await this.orders.click();
     }
 
     async navigateToCart() { // se crea una funcion para navegar al carrito

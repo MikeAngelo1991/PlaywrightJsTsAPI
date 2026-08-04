@@ -13,7 +13,7 @@ class LoginPage {
         await this.page.goto("https://rahulshettyacademy.com/client"); // se navega a la pagina de login
     }
 
-    async validLogin(username,password) { // se crea una funcion asincrona para realizar el login con los parametros de usuario y contraseña
+    async validLogin(username, password) { // se crea una funcion asincrona para realizar el login con los parametros de usuario y contraseña
         await this.userName.fill(username); // se llena el campo de correo electronico
         await this.password.fill(password);
         await this.signInbutton.click();
@@ -22,4 +22,4 @@ class LoginPage {
 
 }
 
-module.exports = {LoginPage}; // se exporta la clase LoginPage para poder ser utilizada en otros archivos
+module.exports = { LoginPage }; // se exporta la clase LoginPage para poder ser utilizada en otros archivos
