@@ -44,7 +44,7 @@ test('@SP Place the order', async ({ page }) => { // se colcoca browser para abr
             //intercepting response - API response -> { Playwright fake response } -> browser->render -> render data on front
         }
     );
-    await page.pause(); // se pausa la ejecución del test para poder inspeccionar la página
+    //await page.pause(); // se pausa la ejecución del test para poder inspeccionar la página
     await page.locator("button[routerlink*=myorders]").click(); // se hace clic en el enlace de mis ordenes
     await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*"); // espera a que se reciba la respuesta de la solicitud de obtener las ordenes del cliente
 

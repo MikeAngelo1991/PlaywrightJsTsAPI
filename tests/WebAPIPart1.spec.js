@@ -20,7 +20,7 @@ test.beforeAll(async () => // se ejecuta antes de todos los tests
 
 //create order is successful and verify it in the orders page
 
-    test('Place the order', async ({ page }) => { // se colcoca browser para abrir el navegador
+    test('@API Place the order', async ({ page }) => { // se colcoca browser para abrir el navegador
 
 
         //const apiUtils = new ApiUtils(response.apiContext, loginPayLoad); // se crea una instancia de la clase ApiUtils y se pasa el contexto de la solicitud y el cuerpo de la solicitud como parámetros

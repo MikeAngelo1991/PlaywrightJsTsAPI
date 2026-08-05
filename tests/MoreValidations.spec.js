@@ -1,6 +1,8 @@
 const {test, expect} = require('@playwright/test');
 
-test('Popup validations', async ({ page }) => {
+//test.describe.configure({ mode: 'parallel' }); // se configura el modo de ejecución de las pruebas en paralelo
+//test.describe.configure({ mode: 'serial' }); // se configura el modo de ejecución de las pruebas en serie
+test('@Web Popup validations', async ({ page }) => {
 
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     //await page.goto("https://google.com");
@@ -39,9 +41,9 @@ test('Screenshot & Visual comparision', async ({ page }) => {
     await expect (page.locator("#displayed-text")).toBeHidden(); // se verifica que el elemento este oculto en la pagina
     
 });
-//screenshot -store -> screenshot -> compare 
 
-test.only('visual', async ({ page }) => {
+//screenshot -store -> screenshot -> compare 
+test('visual', async ({ page }) => {
 
     await page.goto("https://duckduckgo.com/"); // se navega a la pagina de rediff
     expect(await page.screenshot({})).toMatchSnapshot('landing.png'); // se toma una captura de pantalla de la pagina y se guarda en la ruta especificada

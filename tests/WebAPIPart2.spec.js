@@ -99,7 +99,7 @@ test('Client app login', async () => { // se colcoca browser para abrir el naveg
 
 });
 
-test('test case 2', async () => { // se colcoca browser para abrir el navegador
+test('@API test case 2', async () => { // se colcoca browser para abrir el navegador
 
     const email = "";
     const productName = "ZARA COAT 3";

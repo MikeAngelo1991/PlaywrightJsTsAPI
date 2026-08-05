@@ -8,7 +8,7 @@ const dataset = JSON.parse(JSON.stringify(require('./utils/placeorderTestData.js
 for (const data of dataset) { // Iterate through each test data object in the dataset
 
 
-    test(`Client app login for ${data.productName}`, async ({ page }) => { // se colcoca browser para abrir el navegador
+    test(`@Web Client app login for ${data.productName}`, async ({ page }) => { // se colcoca browser para abrir el navegador
 
         //js file locators- login js, DashboardPage.js, CartPage.js, CheckoutPage.js, OrderPage.js etc
 
@@ -44,7 +44,7 @@ for (const data of dataset) { // Iterate through each test data object in the da
 
 }
 
-customtest.only(`Client app login`, async ({ page, testDataForOrder }) => { // se colcoca browser para abrir el navegador y se pasa el objeto testDataForOrder como parametro para poder usar los datos de prueba
+customtest(`Client app login`, async ({ page, testDataForOrder }) => { // se colcoca browser para abrir el navegador y se pasa el objeto testDataForOrder como parametro para poder usar los datos de prueba
 
         //js file locators- login js, DashboardPage.js, CartPage.js, CheckoutPage.js, OrderPage.js etc
 
@@ -66,3 +66,6 @@ customtest.only(`Client app login`, async ({ page, testDataForOrder }) => { // s
         await cartPage.Checkout(); // se llama a la funcion Checkout() de la clase CartPage para realizar el checkout del producto
 
 });
+
+//test files will trigger parallel
+//individual test in the file will run in sequence
