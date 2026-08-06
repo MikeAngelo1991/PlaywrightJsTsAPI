@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","13938","@Web Browser Context-Validating Error login","","Wed Aug 05 21:09:24 GMT-05:00 2026","passed","Wed Aug 05 21:09:38 GMT-05:00 2026","","UIBasicstest1.spec.js","",""
+"","32430","@Web Client app login for ZARA COAT 3","","Wed Aug 05 21:09:24 GMT-05:00 2026","passed","Wed Aug 05 21:09:57 GMT-05:00 2026","","ClientAppPO.spec.js","",""
+"","25855","@Web Client app login for ADIDAS ORIGINAL","","Wed Aug 05 21:09:24 GMT-05:00 2026","passed","Wed Aug 05 21:09:50 GMT-05:00 2026","","ClientAppPO.spec.js","",""
+"","21935","@Web Popup validations","","Wed Aug 05 21:09:24 GMT-05:00 2026","passed","Wed Aug 05 21:09:46 GMT-05:00 2026","","MoreValidations.spec.js","",""
+"","6966","@Web UI Controls","","Wed Aug 05 21:09:47 GMT-05:00 2026","passed","Wed Aug 05 21:09:54 GMT-05:00 2026","","UIBasicstest1.spec.js","",""

@@ -154,3 +154,14 @@ module.exports = defineConfig({ // Configuration for Playwright Test
   // },
 });
 
+/*
+
+como instalar allure para windows con npm: Para instalar Allure en Windows utilizando npm, sigue estos pasos:
+
+1. npm i -D @playwright/test allure-playwright
+2. primero genera en archivo plano para ajustarlo en allure: npx playwright test --grep "@Web" --reporter "line,allure-playwright"
+3. Generar resultados para Allure  allure generate ./allure-results –clean
+4. abrir el reporte de Allure allure open >> allure open ./allure-report
+
+
+*/
