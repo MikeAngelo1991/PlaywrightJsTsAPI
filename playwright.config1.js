@@ -163,5 +163,12 @@ como instalar allure para windows con npm: Para instalar Allure en Windows utili
 3. Generar resultados para Allure  allure generate ./allure-results –clean
 4. abrir el reporte de Allure allure open >> allure open ./allure-report
 
+Jenkins: Jenkins, sigue estos pasos:
+
+descarga el war luego activalo con java -jar jenkins.war
+luego abre jenkins en el navegador y crea un nuevo proyecto de tipo Freestyle
+ingresa la ruta de tu proyecto en el campo "Directorio de trabajo" y configura los pasos de construcción para ejecutar tus pruebas con Playwright
+
+
 
 */
