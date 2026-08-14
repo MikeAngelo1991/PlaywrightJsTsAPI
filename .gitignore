@@ -4,5 +4,10 @@ node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
+# Allure
+/allure-report/
+/allure-results/
+# Evidencias
+*.zip
 /playwright/.cache/
 /playwright/.auth/

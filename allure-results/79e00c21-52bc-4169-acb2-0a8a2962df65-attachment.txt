@@ -1,2 +1,0 @@
-Is the last radio button checked? true
-Is the terms checkbox checked? false
