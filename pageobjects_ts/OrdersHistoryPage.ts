@@ -1,16 +1,25 @@
+import {Page, Locator} from '@playwright/test';
+
 export class OrdersHistoryPage {
-    constructor(page) {
+    page: Page;
+    ordersTable: Locator;
+    rows: Locator;
+    orderdIdDetails: Locator;
+
+    constructor(page: Page) {
         this.page = page;
         this.ordersTable = page.locator("tbody");
         this.rows = page.locator("tbody tr");
         this.orderdIdDetails = page.locator(".col-text");
     }
 
-    async searchOrderAndSelect(orderId) { // se crea una funcion para buscar el id de la orden y seleccionarla
+    async searchOrderAndSelect(orderId: string) { // se crea una funcion para buscar el id de la orden y seleccionarla
 
         await this.ordersTable.waitFor();
         for (let i = 0; i < await this.rows.count(); ++i) {
-            const rowOrderId = await this.rows.nth(i).locator("th").textContent(); // se obtiene el texto del elemento que contiene el id de la orden
+
+            let rowOrderId: any;
+            rowOrderId = await this.rows.nth(i).locator("th").textContent(); // se obtiene el texto del elemento que contiene el id de la orden
             if (orderId.includes(rowOrderId)) {
                 await this.rows.nth(i).locator("button").first().click(); // se hace clic en el boton de la fila que contiene el id de la orden
                 break;

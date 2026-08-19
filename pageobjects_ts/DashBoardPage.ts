@@ -1,6 +1,14 @@
+import {Page, Locator} from '@playwright/test';
+
 export class DashboardPage {
 
-    constructor(page) {
+        products: Locator;
+    productsText: Locator;
+    cart: Locator;
+    orders: Locator;
+    page: Page;
+
+    constructor(page: Page) {
 
         this.page = page; // se asigna el objeto page a la propiedad page de la clase DashboardPage
         this.products = page.locator(".card-body"); // se busca el elemento del contenedor de productos
@@ -10,7 +18,7 @@ export class DashboardPage {
     }
 
 
-    async searchProductAddCart(productName) { // se crea una funcion asincrona para agregar un producto al carrito con el parametro de nombre del producto
+    async searchProductAddCart(productName: string) { // se crea una funcion asincrona para agregar un producto al carrito con el parametro de nombre del producto
 
         await this.products.last().waitFor(); // espera a que el elemento este visible en la pagina
         const titles = await this.productsText.allTextContents();

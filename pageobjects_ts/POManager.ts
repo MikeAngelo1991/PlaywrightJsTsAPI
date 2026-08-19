@@ -6,7 +6,7 @@ import { CartPage } from './CartPage';
 import { expect, type Locator, type Page } from '@playwright/test';
 
 
-expor class POManager { // se crea una clase POManger para manejar los objetos de las paginas
+export class POManager { // se crea una clase POManger para manejar los objetos de las paginas
 
     loginPage : LoginPage; // se crea una propiedad loginPage de tipo LoginPage que es la clase que contiene los elementos y funciones de la pagina de login
     dashboardPage : DashboardPage; // se crea una propiedad dashboardPage de tipo DashboardPage que es la clase que contiene los elementos y funciones de la pagina de dashboard

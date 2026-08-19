@@ -1,8 +1,8 @@
-const { test, expect } = require('@playwright/test')
-const {customtest} = require('./utils/test-base'); // se importa la clase test de playwright y se importa la clase test-base.js para poder usar los datos de prueba
+import { test, expect } from '@playwright/test';
+import { customTest } from '../utils_ts/test-base'; // se importa la clase test de playwright y se importa la clase test-base.js para poder usar los datos de prueba
 
 //const { LoginPage } = require('../pageobjects/LoginPage'); // Import the LoginPage class from the pageobjects/LoginPage.js file
-const { POManager } = require('../pageobjects/POManager'); // Import the POManager class from the pageobjects/POManager.js file
+import { POManager } from '../pageobjects_ts/POManager'; // Import the POManager class from the pageobjects/POManager.js file
 const dataset = JSON.parse(JSON.stringify(require('./utils/placeorderTestData.json'))); // Import the test data from the placeorderTestData.json file and parse it into a JavaScript object
 
 for (const data of dataset) { // Iterate through each test data object in the dataset
@@ -34,7 +34,9 @@ for (const data of dataset) { // Iterate through each test data object in the da
 
         const ordersReviewPage = poManager.getOrdersReviewPage(); // se crea una instancia de la clase OrdersReviewPage y se le pasa el objeto page como parametro
         await ordersReviewPage.searchCountryAndSelect("ind", "India"); // se llama a la funcion searchCountryAndSelect() de la clase OrdersReviewPage para buscar el pais y seleccionarlo con los parametros de nombre del pais y nombre del pais completo
-        const orderId = await ordersReviewPage.SubmitAndGetOrderId(); // se llama a la funcion SubmitAndGetOrderId() de la clase OrdersReviewPage para realizar el submit del pedido y obtener el id del pedido
+        
+        let orderId: any;
+        orderId = await ordersReviewPage.SubmitAndGetOrderId(); // se llama a la funcion SubmitAndGetOrderId() de la clase OrdersReviewPage para realizar el submit del pedido y obtener el id del pedido
         console.log(orderId); // se imprime el id del pedido en la consola
         await dashboardPage.navigateToOrders(); // se llama a la funcion navigateToOrders() de la clase DashboardPage para navegar a la pagina de ordenes
         const ordersHistoryPage = poManager.getOrdersHistoryPage(); // se crea una instancia de la clase OrdersHistoryPage y se le pasa el objeto page como parametro
@@ -44,7 +46,7 @@ for (const data of dataset) { // Iterate through each test data object in the da
 
 }
 
-customtest(`Client app login`, async ({ page, testDataForOrder }) => { // se colcoca browser para abrir el navegador y se pasa el objeto testDataForOrder como parametro para poder usar los datos de prueba
+customTest(`Client app login`, async ({ page, testDataForOrder }) => { // se colcoca browser para abrir el navegador y se pasa el objeto testDataForOrder como parametro para poder usar los datos de prueba
 
         //js file locators- login js, DashboardPage.js, CartPage.js, CheckoutPage.js, OrderPage.js etc
 

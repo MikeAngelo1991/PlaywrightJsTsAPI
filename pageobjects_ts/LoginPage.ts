@@ -1,6 +1,13 @@
+import {Page, Locator} from '@playwright/test';
+
 export class LoginPage {
 
-    constructor(page) {
+    signInbutton: Locator;
+    userName: Locator;
+    password: Locator;
+    page: Page;
+
+    constructor(page: Page) {
 
         this.page = page; // se asigna el objeto page a la propiedad page de la clase LoginPage
         this.signInbutton = page.locator("[value='Login']"); // se busca el elemento del boton de login
@@ -13,7 +20,7 @@ export class LoginPage {
         await this.page.goto("https://rahulshettyacademy.com/client"); // se navega a la pagina de login
     }
 
-    async validLogin(username, password) { // se crea una funcion asincrona para realizar el login con los parametros de usuario y contraseña
+    async validLogin(username: string, password: string) { // se crea una funcion asincrona para realizar el login con los parametros de usuario y contraseña
         await this.userName.fill(username); // se llena el campo de correo electronico
         await this.password.fill(password);
         await this.signInbutton.click();
