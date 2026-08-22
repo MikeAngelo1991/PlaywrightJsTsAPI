@@ -1,0 +1,1 @@
+//module.exports = {default: '--publish-quiet'} // sirve para que no se muestren los logs de cucumber en la consola
