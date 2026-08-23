@@ -9,7 +9,8 @@
     "APITest": "npx playwright test --grep @API",
     "SafariNewConfig": "npx playwright test --config=playwright.config1.js --project=safari",
     "allureReport": "npx allure generate allure-results --clean -o allure-report",
-    "allureOpen": "npx allure open allure-report"
+    "allureOpen": "npx allure open allure-report",
+    "CucumberRegression": "npx cucumber-js --tags @Regression --retry 1 --exit --format html:cucumber-report.html"
   },
   "keywords": [],
   "author": "",
