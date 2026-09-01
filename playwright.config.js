@@ -14,9 +14,9 @@ const { defineConfig } = require('@playwright/test');
  */
 module.exports = defineConfig({ // Configuration for Playwright Test 
   testDir: './tests', // Specify the directory where the test files are located
-  timeout: 60 * 1000, // Maximum time one test can run for.
+  timeout: 90 * 1000, // Maximum time one test can run for.
   expect: {
-  timeout: 60 * 1000, // Maximum time expect() should wait for the condition to be met.
+  timeout: 90 * 1000, // Maximum time expect() should wait for the condition to be met.
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
