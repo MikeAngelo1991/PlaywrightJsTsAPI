@@ -14,6 +14,8 @@ test('Calendar validations', async ({ page }) => {
     await page.getByText(year).click(); // se hace clic en el año correspondiente al año ingresado
     await page.locator(".react-calendar__year-view__months__month").nth(Number(monthNumber) - 1).click(); // se hace clic en el mes correspondiente al numero de mes ingresado
     await page.locator("//abbr[text()='" + date + "']").click(); // se hace clic en el dia correspondiente al dia ingresado 
+    //calendar test
+
 
     const inputs = page.locator(".react-date-picker__inputGroup__input") // se obtiene el valor de los campos de fecha
 
