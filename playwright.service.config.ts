@@ -1,7 +1,7 @@
-const { defineConfig } = require('@playwright/test');
-const { createAzurePlaywrightConfig, ServiceOS } = require('@azure/playwright');
-const { DefaultAzureCredential } = require('@azure/identity');
-const config = require('./playwright.config');
+import { defineConfig } from '@playwright/test';
+import { createAzurePlaywrightConfig, ServiceOS } from '@azure/playwright';
+import { DefaultAzureCredential } from '@azure/identity';
+import config from './playwright.config';
 
 /* Learn more about service configuration at https://aka.ms/pww/docs/config */
 export default defineConfig(
