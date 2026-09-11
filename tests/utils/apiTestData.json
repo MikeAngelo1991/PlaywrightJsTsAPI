@@ -1,0 +1,10 @@
+[
+    {
+        "endpoint": "https://jsonplaceholder.typicode.com/posts/1",
+        "expectedStatus": 200,
+        "expectedBody": {
+            "userId": 1,
+            "id": 1
+        }
+    }
+]

@@ -1,3 +1,5 @@
+//Author : Miguel Muñoz
+
 const { test, expect } = require('@playwright/test')
 const {customtest} = require('./utils/test-base'); // se importa la clase test de playwright y se importa la clase test-base.js para poder usar los datos de prueba
 
@@ -41,7 +43,6 @@ for (const data of dataset) { // Iterate through each test data object in the da
         await ordersHistoryPage.searchOrderAndSelect(orderId); // se llama a la funcion searchOrderAndSelect() de la clase OrdersHistoryPage para buscar el pedido y seleccionarlo con el parametro de id del pedido
         expect(orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy(); // se verifica que el id del pedido obtenido de la pagina de ordenes sea igual al id del pedido obtenido de la pagina de review de ordenes
     });
-
 }
 
 customtest(`Client app login`, async ({ page, testDataForOrder }) => { // se colcoca browser para abrir el navegador y se pasa el objeto testDataForOrder como parametro para poder usar los datos de prueba
